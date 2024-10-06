@@ -10,22 +10,25 @@ test = {
     "updatedAt" : 1
 }
 
-def get_json_data(filename : str):
+def get_json_data():
     try:
-        with open(filename + "/src/task.json", "r") as f:
+        with open("task.json", "r") as f:
             file_data = f.read()
             data = json.loads(file_data)
-        print(data)
+            print(data)
     except:
         print("Something went wrong in loading the file data")
 
-def create_json_data(filename : str):
+def create_json_data():
     try:
-        with open(filename + "/src/task.json", "w") as f:
+        with open("task.json", "w") as f:
             data = json.dumps(test)
             f.write(data)
+            print(data)
     except:
         print("Something went wrong writing the file data")
 
-create_json_data(getcwd())
-get_json_data(getcwd())
+
+if __name__ == "__main__":
+    create_json_data()
+    get_json_data()
